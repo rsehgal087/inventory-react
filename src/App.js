@@ -9,7 +9,8 @@ import Update from './component/Update';
 
 function App() {
   const location = useLocation();
-  const apiKey = process.env.REACT_APP_LOCALHOST_API
+  const apiKey ="localhost:8080"
+  console.log(apiKey)
   return (
     <>
     <div>
@@ -17,9 +18,9 @@ function App() {
     <Routes>
     <Route path='/' element={<Home/>} /> 
     <Route path='/login' element={<Login apiKey={apiKey}/>}/> 
-    <Route path='/add' element={<Add piKey={apiKey}/>} />
-    <Route path='/dashboard' element={<Dashboard piKey={apiKey}/>} />
-    <Route path='/update' element={<Update piKey={apiKey}/>}/>
+    <Route path='/add' element={<Add apiKey={apiKey}/>} />
+    <Route path='/dashboard' element={<Dashboard apiKey={apiKey}/>} />
+    <Route path='/update' element={<Update apiKey={apiKey}/>}/>
     </Routes>
     </div>
     </>
