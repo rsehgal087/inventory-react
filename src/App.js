@@ -15,7 +15,7 @@ function App() {
     <>
     <div>
     <NavBar currentRoute={location.pathname} />
-    <Routes>
+    <Routes>  
     <Route path='/' element={<Home/>} /> 
     <Route path='/login' element={<Login apiKey={apiKey}/>}/> 
     <Route path='/add' element={<Add apiKey={apiKey}/>} />
