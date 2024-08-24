@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../css/Update.css'
 
-export default function Update() {
+export default function Update(props) {
     let navigate = useNavigate();
     const [name, setName] = useState('');
     const [description, setDesc] = useState('');
@@ -26,7 +26,7 @@ export default function Update() {
             alert("All fields are mandatory. Please fill all fields.");
             return;
         }
-        axios.put(`http://localhost:8080/product/${productId}`, {
+        axios.put(`http://${props.apiKey}/product/${productId}`, {
             productId,
             name,
             description,
