@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../css/Login.css';
 
-export default function Login() {
+export default function Login(props) {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -22,7 +22,7 @@ export default function Login() {
             alert("Password cannot be empty.");
             return;
         }
-        axios.post(`http://localhost:8080/login`, {
+        axios.post(`http://${props.apiKey}/login`, {
             username,
             password
         }).then(() => {

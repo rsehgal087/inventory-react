@@ -9,16 +9,17 @@ import Update from './component/Update';
 
 function App() {
   const location = useLocation();
+  const apiKey = process.env.REACT_APP_LOCALHOST_API
   return (
     <>
     <div>
     <NavBar currentRoute={location.pathname} />
     <Routes>
     <Route path='/' element={<Home/>} /> 
-    <Route path='/login' element={<Login />}/> 
-    <Route path='/add' element={<Add/>} />
-    <Route path='/dashboard' element={<Dashboard/>} />
-    <Route path='/update' element={<Update/>}/>
+    <Route path='/login' element={<Login apiKey={apiKey}/>}/> 
+    <Route path='/add' element={<Add piKey={apiKey}/>} />
+    <Route path='/dashboard' element={<Dashboard piKey={apiKey}/>} />
+    <Route path='/update' element={<Update piKey={apiKey}/>}/>
     </Routes>
     </div>
     </>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../css/Add.css';
 
-export default function Add() {
+export default function Add(props) {
     let navigate = useNavigate();
     const [name, setName] = useState('');
     const [description, setDesc] = useState('');
@@ -18,7 +18,7 @@ export default function Add() {
             return;
         }
         
-        axios.post(`http://localhost:8080/product`, {
+        axios.post(`http://${props.apiKey}/product`, {
             productId,
             name,
             description,

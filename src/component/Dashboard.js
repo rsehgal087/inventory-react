@@ -4,13 +4,13 @@ import "../css/Dashboard.css"
 import CustomAlert from './CustomAlert';
 import { useNavigate } from 'react-router-dom';
 
-export default function Dashboard() {
+export default function Dashboard(props) {
     const [APIData, setAPIData] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/product`)
+        axios.get(`http://${props.apiKey}/product`)
             .then((response) => {
                 const fetchedData = response.data;
                 setAPIData(fetchedData);
@@ -35,7 +35,7 @@ export default function Dashboard() {
     const onDelete = (data) => {
         const confirmDelete = window.confirm(`Do you want to delete this product ${data.name}?`);
         if (confirmDelete) {
-        axios.delete(`http://localhost:8080/product/${data.productId}`)
+        axios.delete(`http://${props.apiKey}/product/${data.productId}`)
             .then(() => {
                 getData();
             })
@@ -43,7 +43,7 @@ export default function Dashboard() {
     }
 
     const getData = () => {
-        axios.get(`http://localhost:8080/product`)
+        axios.get(`http://${props.apiKey}/product`)
             .then((getData) => {
                 setAPIData(getData.data);
             })
